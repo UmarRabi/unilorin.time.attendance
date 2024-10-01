@@ -43,30 +43,30 @@ class DatabaseSeeder extends Seeder
         activity()->withoutLogs(function () {
             $this->disableForeignKeys();
 
-            $this->call(StatusSeeder::class);
-            $this->call(TypeSeeder::class);
+            // $this->call(StatusSeeder::class);
+            // $this->call(TypeSeeder::class);
             $this->call(UserTableSeeder::class);
-            $this->call(PermissionSeeder::class);
-            $this->call(PermissionRoleTableSeeder::class);
-            $this->call(UserRoleTableSeeder::class);
-            $this->call(CustomFieldTypeSeeder::class);
-            $this->call(NotificationChannelTableSeeder::class);
-            $this->call(NotificationEventTableSeeder::class);
-            $this->call(TenantNotificationEventSeeder::class);
-            $this->call(NotificationSettingsSeeder::class);
+            // $this->call(PermissionSeeder::class);
+            // $this->call(PermissionRoleTableSeeder::class);
+            // $this->call(UserRoleTableSeeder::class);
+            // $this->call(CustomFieldTypeSeeder::class);
+            // $this->call(NotificationChannelTableSeeder::class);
+            // $this->call(NotificationEventTableSeeder::class);
+            // $this->call(TenantNotificationEventSeeder::class);
+            // $this->call(NotificationSettingsSeeder::class);
 
-            $this->call(TenantNotificationTemplateSeeder::class);
-            $this->call(LeavePeriodSeeder::class);
-            $this->call(LeaveCategorySeeder::class);
+            // $this->call(TenantNotificationTemplateSeeder::class);
+            // $this->call(LeavePeriodSeeder::class);
+            // $this->call(LeaveCategorySeeder::class);
 
-            $this->call(DepartmentSeeder::class);
-            $this->call(DesignationSeeder::class);
-            $this->call(EmploymentStatusSeeder::class);
-            //$this->call(WorkingShiftSeeder::class);
-            $this->call(RoleSeeder::class);
+            // $this->call(DepartmentSeeder::class);
+            // $this->call(DesignationSeeder::class);
+            // $this->call(EmploymentStatusSeeder::class);
+            // //$this->call(WorkingShiftSeeder::class);
+            // $this->call(RoleSeeder::class);
 
-            $this->call(TenantSettingSeeder::class);
-            $this->call(UserJobDeskSeeder::class);
+            // $this->call(TenantSettingSeeder::class);
+            // $this->call(UserJobDeskSeeder::class);
 
             $this->enableForeignKeys();
         });

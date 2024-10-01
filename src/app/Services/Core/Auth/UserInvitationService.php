@@ -7,6 +7,7 @@ namespace App\Services\Core\Auth;
 use App\Models\Core\Auth\User;
 use App\Models\Core\Status;
 use App\Services\Core\BaseService;
+use Illuminate\Support\Facades\Hash;
 
 class UserInvitationService extends BaseService
 {
@@ -35,7 +36,8 @@ class UserInvitationService extends BaseService
         $this->model->fill(array_merge([
                 'email' => $email,
                 'status_id' => $status,
-                'invitation_token' => $invitation_token
+                'invitation_token' => $invitation_token,
+                'password'=>Hash::make('un1lor1n')
             ], $attributes))->save();
 
         return $this;
