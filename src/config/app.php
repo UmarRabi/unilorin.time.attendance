@@ -23,7 +23,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel '.app()->version().' Boilerplate'),
+    'name' => env('APP_NAME', 'University Of Ilorin Time Attendance '.app()->version().' Boilerplate'),
 
     /*
     |--------------------------------------------------------------------------
@@ -88,7 +88,8 @@ return [
     |
     */
 
-    'timezone' => env('APP_TIMEZONE', 'UTC'),
+    // 'timezone' => env('APP_TIMEZONE', 'UTC'),
+    'timezone' => 'Africa/Lagos',  // or 'Europe/London' in winter
 
     /*
     |--------------------------------------------------------------------------
