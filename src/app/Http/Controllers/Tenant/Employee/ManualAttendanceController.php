@@ -11,7 +11,6 @@ use App\Models\Tenant\Attendance\Attendance;
 use App\Models\Tenant\Attendance\AttendanceDetails;
 use App\Repositories\Core\Status\StatusRepository;
 use App\Services\Tenant\Attendance\AttendanceService;
-use App\Services\Tenant\Employee\EmployeeService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;

@@ -7,7 +7,7 @@ if (!function_exists('nowFromApp')) {
 
     function nowFromApp(): Carbon
     {
-        return now('UTC');
+        return now();
     }
 
 }
@@ -16,7 +16,7 @@ if (!function_exists('todayFromApp')) {
 
     function todayFromApp(): Carbon
     {
-        return today('UTC');
+        return today();
     }
 
 }
