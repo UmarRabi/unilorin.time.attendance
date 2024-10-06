@@ -27,7 +27,7 @@ class PurchaseCodeService extends BaseService
             'APP_LOCALE='.$request->get('app_locale', 'en')."\n".
             'APP_FALLBACK_LOCALE='.$request->get('app_locale', 'en')."\n".
             'APP_LOCALE_PHP='.$request->get('app_locale_php', 'en_US')."\n".
-            'APP_TIMEZONE='.$request->get('app_timezone', 'UTC')."\n".
+            'APP_TIMEZONE='.$request->get('app_timezone', 'Africa/Lagos')."\n".
             'LOG_CHANNEL='.$request->get('log_channel', 'daily')."\n".
             'DEBUGGER_ENABLED='.'false'."\n".
             'SINGLE_LOGIN='.'false'."\n".

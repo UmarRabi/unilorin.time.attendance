@@ -7,7 +7,7 @@ if (!function_exists('nowFromApp')) {
 
     function nowFromApp(): Carbon
     {
-        return now();
+        return now('Africa/Lagos');
     }
 
 }
@@ -16,7 +16,7 @@ if (!function_exists('todayFromApp')) {
 
     function todayFromApp(): Carbon
     {
-        return today();
+        return today('Africa/Lagos');
     }
 
 }

@@ -8,7 +8,7 @@ use Illuminate\Support\Carbon;
 
 trait DateTimeHelper
 {
-    protected function carbon($timestamp, $timezone = 'UTC'): DateTimeHelperInterface
+    protected function carbon($timestamp, $timezone = 'Africa/Lagos'): DateTimeHelperInterface
     {
         if (!$timestamp instanceof Carbon) {
             $timestamp = Carbon::parse($timestamp, $timezone);

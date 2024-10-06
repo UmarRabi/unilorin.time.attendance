@@ -655,7 +655,7 @@ class Response
             $date = \DateTimeImmutable::createFromMutable($date);
         }
 
-        $date = $date->setTimezone(new \DateTimeZone('UTC'));
+        $date = $date->setTimezone(new \DateTimeZone('Africa/Lagos'));
         $this->headers->set('Date', $date->format('D, d M Y H:i:s').' GMT');
 
         return $this;
@@ -726,7 +726,7 @@ class Response
             $date = \DateTimeImmutable::createFromMutable($date);
         }
 
-        $date = $date->setTimezone(new \DateTimeZone('UTC'));
+        $date = $date->setTimezone(new \DateTimeZone('Africa/Lagos'));
         $this->headers->set('Expires', $date->format('D, d M Y H:i:s').' GMT');
 
         return $this;
@@ -873,7 +873,7 @@ class Response
             $date = \DateTimeImmutable::createFromMutable($date);
         }
 
-        $date = $date->setTimezone(new \DateTimeZone('UTC'));
+        $date = $date->setTimezone(new \DateTimeZone('Africa/Lagos'));
         $this->headers->set('Last-Modified', $date->format('D, d M Y H:i:s').' GMT');
 
         return $this;

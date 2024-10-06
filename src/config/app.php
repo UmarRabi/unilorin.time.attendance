@@ -88,7 +88,7 @@ return [
     |
     */
 
-    // 'timezone' => env('APP_TIMEZONE', 'UTC'),
+    // 'timezone' => env('APP_TIMEZONE', 'Africa/Lagos'),
     'timezone' => 'Africa/Lagos',  // or 'Europe/London' in winter
 
     /*

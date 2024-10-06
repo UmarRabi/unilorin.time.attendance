@@ -203,7 +203,7 @@ class AttendanceService extends TenantService
             return 'regular';
         }
 
-        $workShiftTime = $this->carbon($this->getToday()->toDateString() . ' ' . $details->start_at, 'UTC')->parse();
+        $workShiftTime = $this->carbon($this->getToday()->toDateString() . ' ' . $details->start_at, 'Africa/Lagos')->parse();
 
         if ($this->getNow()->isBefore($workShiftTime)) {
             return 'early';

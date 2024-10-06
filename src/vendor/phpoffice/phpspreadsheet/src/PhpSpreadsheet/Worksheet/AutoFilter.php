@@ -347,7 +347,7 @@ class AutoFilter
         if (($cellValue == '') || ($cellValue === null)) {
             return $blanks;
         }
-        $timeZone = new DateTimeZone('UTC');
+        $timeZone = new DateTimeZone('Africa/Lagos');
 
         if (is_numeric($cellValue)) {
             $dateTime = Date::excelToDateTimeObject((float) $cellValue, $timeZone);
