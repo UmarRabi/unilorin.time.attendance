@@ -30,11 +30,12 @@ class ManualAttendanceController extends Controller
         $this->departmentAuthentications($request->get('employee_id'), true);
 
         $this->service
-            ->setAttributes(
-                array_merge($request->only('employee_id', 'in_date', 'note', 'in_time', 'out_time'), [
-                    'review_by' => auth()->id(),
+        ->setAttributes(
+            array_merge($request->only('employee_id', 'in_date', 'note', 'in_time', 'out_time'), [
+                'review_by' => auth()->id(),
                 ])
-                );
+            );
+            // Log::alert($this->service->getAttributes());
             // ->validateManual()
             // ->validateIfNotFuture();
 
@@ -65,7 +66,7 @@ class ManualAttendanceController extends Controller
                                 'behavior' => $service->getUpdateBehavior()
                             ], $attributes);
                         }
-
+                        Log::alert($attributes);
                         $service->updateAttendance($attributes);
                     }
                 );

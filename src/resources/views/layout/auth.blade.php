@@ -5,7 +5,7 @@
 
         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-8">
             @php
-                $banner = settings('tenant_banner', 'app_banner');
+                // $banner = settings('tenant_banner', 'app_banner');
                 $banner =  asset('images/default-banner.png');
             @endphp
             <div class="back-image"

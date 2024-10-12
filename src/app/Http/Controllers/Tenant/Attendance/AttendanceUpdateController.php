@@ -9,6 +9,7 @@ use App\Services\Tenant\Attendance\AttendanceUpdateService;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class AttendanceUpdateController extends Controller
 {
@@ -33,6 +34,7 @@ class AttendanceUpdateController extends Controller
 
         $this->departmentAuthentications($attendanceDetails->attendance->user->id, true);
 
+        Log::alert($request);
         DB::transaction(
             fn () => $this->service
                 ->setModel($attendanceDetails->attendance->user)
@@ -40,9 +42,9 @@ class AttendanceUpdateController extends Controller
                 ->mergeAttributes($this->service->getStatusAttribute())
                 ->setDetails($attendanceDetails)
                 ->validateIfAlreadyRequested($attendanceDetails->id)
-                ->validateForRequest()
-                ->validateIfNotFuture()
-                ->validateAttendanceRequestDate()
+                // ->validateForRequest()
+                // ->validateIfNotFuture()
+                // ->validateAttendanceRequestDate()
                 ->validateWorkShift()
                 ->validateOwner()
                 ->validateExistingPunchTime($attendanceDetails->id)

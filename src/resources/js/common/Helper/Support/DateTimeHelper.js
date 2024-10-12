@@ -20,7 +20,7 @@ export const date_format = () => {
     };
 };
 
-export const localTimeZone = moment.tz.guess();
+export const localTimeZone = 'Africa/Lagos';
 
 export const serverDateTimeFormat = 'YYYY-MM-DD H:mm:ss';
 
@@ -49,8 +49,8 @@ export const formatDateToLocal = (date, withTime = false) => {
         return '';
     const formatString = withTime ? `${formatted_date()} ${time_format()}` : formatted_date();
 
-    return moment.utc(date, withTime ? serverDateTimeFormat : serverDateFormat)
-        .local()
+    return moment.tz(date, withTime ? serverDateTimeFormat : serverDateFormat, 'Africa/Lagos')
+        // .local()
         .format(formatString);
 };
 
@@ -59,18 +59,21 @@ export const dateTimeToLocalWithFormat = (date = null) => {
         return '';
     }
 
-    return moment.utc(date, serverDateTimeFormat)
-        .local()
-        .format(serverDateTimeFormat)
+    return moment.tz(date, serverDateTimeFormat, 'Africa/Lagos')  // Use 'Africa/Lagos' timezone
+    .format(serverDateTimeFormat);
+    // return moment.utc(date, serverDateTimeFormat)
+    //     .local()
+    //     .format(serverDateTimeFormat)
 }
 
 export const timeInterval = (date) => {
-    return moment(date).utc(false).fromNow();
+    return moment.tz(date, 'Africa/Lagos').fromNow(); 
 };
 
 export const onlyTime = date => {
-    return moment.utc(date, serverDateTimeFormat)
-        .local()
+    
+    return moment.tz(date, serverDateTimeFormat, 'Africa/Lagos')
+        // .local()
         .format(time_format());
 };
 
@@ -78,7 +81,9 @@ export const formatUtcToLocal = (time = null, format = false) => {
     if (!time)
         return null;
 
-    return moment.utc(time, serverTimeFormat).local().format(format || time_format());
+    return moment.tz(time, serverTimeFormat, 'Africa/Lagos')
+    // .local()
+    .format(format || time_format());
 }
 
 export const isValidDate = string => {

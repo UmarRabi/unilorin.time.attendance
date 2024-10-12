@@ -21,6 +21,7 @@ use App\Services\Tenant\TenantService;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 
@@ -102,8 +103,10 @@ class AttendanceService extends TenantService
             'status_id' => $this->getAttr('status_id')
         ]);
 
-        $this->details = new AttendanceDetails($attributes);
 
+        $this->details = new AttendanceDetails($attributes);
+        Log::alert('from build in out details');
+        Log::alert($attributes);
         return $this;
     }
 
@@ -309,6 +312,9 @@ class AttendanceService extends TenantService
             'added_by' => $this->getAttr('added_by')
         ];
 
+        Log::alert('from manual add punch in');
+        Log::alert($attributes);
+
         $this->buildInOutDetails($attributes)
             ->saveManualDetails($this->todayAttendance('manual'))
             ->createNote(
@@ -424,6 +430,7 @@ class AttendanceService extends TenantService
     public
     function saveManualDetails(Attendance $attendance)
     {
+        Log::alert($this->details);
         $attendance
             ->details()
             ->save($this->details);

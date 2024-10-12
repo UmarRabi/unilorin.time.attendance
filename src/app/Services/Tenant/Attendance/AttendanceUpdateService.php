@@ -50,9 +50,9 @@ class AttendanceUpdateService extends AttendanceService
     public function validateForRequest(): AttendanceUpdateService
     {
         validator($this->getAttrs('in_time', 'out_time', 'note'), [
-            'note' => 'required|min:10',
-            'in_time' => [Rule::requiredIf(!$this->getAttr('out_time')), 'different:' . $this->carbon($this->details->in_time)->toDateTime()],
-            'out_time' => [Rule::requiredIf(!$this->getAttr('in_time')), 'different:' . $this->carbon($this->details->out_time)->toDateTime()],
+            'note' => 'required',
+            // 'in_time' => [Rule::requiredIf(!$this->getAttr('out_time')), 'different:' . $this->carbon($this->details->in_time)->toDateTime()],
+            // 'out_time' => [Rule::requiredIf(!$this->getAttr('in_time')), 'different:' . $this->carbon($this->details->out_time)->toDateTime()],
         ])->validate();
 
         throw_if(

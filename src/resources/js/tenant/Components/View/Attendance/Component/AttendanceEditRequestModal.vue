@@ -58,16 +58,16 @@ export default {
     methods: {
         submitData(){
             let formData = {...this.formData};
-            console.log('form date object',this.formData);
-            // formData.in_time = formatDateTimeForServer(this.formData.in_time);
-            // formData.out_time = formatDateTimeForServer(this.formData.out_time);
+            formData.in_time = formatDateTimeForServer(this.formData.in_time);
+            formData.out_time = formatDateTimeForServer(this.formData.out_time);
+            console.log('form date object',formData);
             this.setBasicFormActionData()
                 .save(this.formData);
         },
         afterSuccessFromGetEditData({data}) {
             this.formData = data;
-            this.formData.in_time = new Date(dateTimeToLocalWithFormat(data.in_time));
-            this.formData.out_time = new Date(dateTimeToLocalWithFormat(data.out_time));
+            // this.formData.in_time = new Date(dateTimeToLocalWithFormat(data.in_time));
+            // this.formData.out_time = new Date(dateTimeToLocalWithFormat(data.out_time));
             this.preloader = false;
         },
         afterSuccess(response) {
