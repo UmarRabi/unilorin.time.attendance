@@ -100,13 +100,17 @@ class AttendanceService extends TenantService
     {
         $attributes = array_merge($attributes, [
             'in_time' => $this->getNow(),
+            // 'out_time' => Carbon::parse($this->getAttr('out_time')),
             'status_id' => $this->getAttr('status_id')
         ]);
 
 
         $this->details = new AttendanceDetails($attributes);
-        Log::alert('from build in out details');
+        $this->details['out_time']=$attributes['out_time'];
         Log::alert($attributes);
+
+        Log::alert('from build in out details');
+        Log::alert($this->details);
         return $this;
     }
 
@@ -312,9 +316,6 @@ class AttendanceService extends TenantService
             'added_by' => $this->getAttr('added_by')
         ];
 
-        Log::alert('from manual add punch in');
-        Log::alert($attributes);
-
         $this->buildInOutDetails($attributes)
             ->saveManualDetails($this->todayAttendance('manual'))
             ->createNote(
@@ -430,7 +431,6 @@ class AttendanceService extends TenantService
     public
     function saveManualDetails(Attendance $attendance)
     {
-        Log::alert($this->details);
         $attendance
             ->details()
             ->save($this->details);

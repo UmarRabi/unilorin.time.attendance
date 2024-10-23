@@ -13,7 +13,7 @@ class AttendanceDetails extends TenantModel
 
     protected $fillable = [
         'in_time', '
-        out_time', 
+         out_time', 
         'attendance_id', 
         'status_id', 
         'review_by',
