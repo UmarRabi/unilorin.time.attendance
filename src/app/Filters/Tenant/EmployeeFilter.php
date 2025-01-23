@@ -142,6 +142,9 @@ class EmployeeFilter extends UserFilter
                 $builder->where('first_name', 'LIKE', "%$search%")
                     ->orWhere('last_name', 'LIKE', "%{$search}%")
                     ->orWhere('email', 'LIKE', "%$search%")
+                    ->orWhereHas('profile', function($q) use($search){
+                        $q->where('employee_id', 'LIKE',"%$search%");
+                    })
                     ->orWhereRaw(DB::raw('CONCAT(`first_name`, " ", `last_name`) LIKE ?'), ["%$search%"]);
             });
         });
